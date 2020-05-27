@@ -14,7 +14,9 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        //
+        $articles = Article::all()->last()->paginate(5);
+
+        return view('articles.index')->withArticles($articles);
     }
 
     /**
